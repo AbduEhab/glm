@@ -93,7 +93,7 @@ namespace detail
 		template<length_t L, typename T>
 		struct storage<L, T, true>
 		{
-			typedef struct alignas(L * sizeof(T)) type {
+			typedef struct alignas(static_cast<size_t>(L) * sizeof(T)) type {
 				T data[L];
 			} type;
 		};
